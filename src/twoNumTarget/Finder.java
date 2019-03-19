@@ -9,13 +9,14 @@ public class Finder {
 	public boolean search(int[] numbers, int target) {
 		
 		Arrays.parallelSort(numbers);
-		
 		for(int i = 0; i< numbers.length; i++) {
 			for(int j = i+1; j < numbers.length; j++){
+				if(numbers[i]+numbers[j] > target) {break;}
 				if(numbers[i] + numbers[j] == target) {
 					return true;
 				}
 			}
+			if(numbers[i]>target/2) {break;}
 		}
 		return false;
 	}

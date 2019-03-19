@@ -111,7 +111,6 @@ public class Layout implements ActionListener {
 		
 		if(event.getSource() == btnFinder) {
 			
-			boolean out;
 			String text = "";
 			
 			if(find.search(nums,target)) {
