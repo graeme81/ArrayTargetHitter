@@ -80,7 +80,7 @@ public class Layout implements ActionListener {
 		lblResult = new Label();
 		lblResult.setBounds(70, 260, 270, 50);
 		lblResult.setAlignment(Label.LEFT);
-		lblResult.setFont(new Font("Serif",Font.PLAIN, 26));
+		lblResult.setFont(new Font("Serif",Font.PLAIN, 22));
 		panel.add(lblResult);
 	
 	}
@@ -90,31 +90,36 @@ public class Layout implements ActionListener {
 		
 		if(event.getSource() == btnNums) {
 			
-			int random = (int)(Math.random() * 6 + 3);
+			int random = (int)(Math.random() * 6 + 3);  // random number between 3 and 8
 			nums = new int[random];
 			for(int i = 0; i < nums.length; i++) {
-				int x = (int)(Math.random() * 10 + 1);
+				int x = (int)(Math.random() * 10 + 1);  // random number between 1 and 10
 				nums[i] = x;
 			}
 			String numLine = "";
-			for(int k : nums) {
-				numLine = numLine + k + ", ";
+			for(int x : nums) {
+				numLine = numLine + x + ", ";
 			}
-			numLine = numLine.substring(0, numLine.length()-2);
+			numLine = numLine.substring(0, numLine.length()-2);  // delete last comma and space
 			txtArray.setText(numLine);
 		}
 		
 		if(event.getSource()== btnTarget) {
-			target = (int)(Math.random() * 16 + 3);
+			target = (int)(Math.random() * 16 + 3);    // random number between 3 and 18
 			txtTarget.setText(Integer.toString(target));			
 		}
 		
 		if(event.getSource() == btnFinder) {
 			
 			boolean out;
+			String text = "";
 			
-			out = (find.search(nums,target));
-			lblResult.setText(out+" ");
+			if(find.search(nums,target)) {
+				text = "The target can be reached";
+			}else {
+				text = "We cannot make that target";
+			}
+			lblResult.setText(text);
 		}	
 		
 	}

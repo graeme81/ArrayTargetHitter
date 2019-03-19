@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Finder {
 
-	//public Finder() {}
+	public Finder() {}
 	
 	public boolean search(int[] numbers, int target) {
 		
